@@ -1,1 +1,12 @@
 <h1>Hello, Rails! Articles#index</h1>
+
+<ul>
+  <%# Controller instance variables can be accessed by the view so we can reference @articles %>
+  <%# ERB is a templating system that evaluates Ruby code embedded in a document %>
+  <%# %= means evaluate the Ruby code and output value it returns vs. % means evaluate Ruby code %>
+  <% @articles.each do |article| %>
+    <li>
+      <%= article.title %>
+    </li>
+  <% end %>
+</ul>
