@@ -47,6 +47,24 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # Edit the form; fetch article from database first and store in article so it can be used when building the form
+  # By default the edit action will render edit.html.erb
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  # Carry out the update; refetches the article from the databse and attempts to update it with the submitted form data
+  # from article_params; if no validations fail and update is successful, action redirects browser to article's page; else action redisplays the form with error messages in edit.html.erb
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
     # Using strong parameters to extract out form field paramaters
     def article_params
