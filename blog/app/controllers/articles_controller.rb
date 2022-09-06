@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
   # 5. ERB code in view is evaluated to output HTML
   # 7. Server sends response containing HTML back to browser
 
+  http_basic_authenticate_with name: "admin", password: "testing", except: [:index, :show]
+
   def index
     # By default action is empty; when action does not explicitly render a view or trigger an HTTP response, Rails will automatically render a view
     # that matches the name of the controller and action

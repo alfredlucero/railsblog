@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # Routes method named resources maps all of the conventional routes for a collection of resources
   # See bin/rails routes
   resources :articles do
+    # Creates comments as a nested resource within articles
     resources :comments
   end
 end
