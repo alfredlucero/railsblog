@@ -65,6 +65,15 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # DELETE /articles/:id
+  # Fetches article from database and calls destroy on it; redirects browser to root path with 303 see other status
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
   private
     # Using strong parameters to extract out form field paramaters
     def article_params
