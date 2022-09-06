@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   # get "/articles/:id", to: "articles#show"
   # Routes method named resources maps all of the conventional routes for a collection of resources
   # See bin/rails routes
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
 end
