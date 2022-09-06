@@ -18,4 +18,8 @@ class ArticlesController < ApplicationController
     # Fetch all articles from database
     @articles = Article.all
   end
+
+  def show
+    @article = Article.find(params[:id])
+  end
 end

@@ -6,7 +6,8 @@
   <%# %= means evaluate the Ruby code and output value it returns vs. % means evaluate Ruby code %>
   <% @articles.each do |article| %>
     <li>
-      <%= article.title %>
+      <%# Old way with routeprefix_path i.e. article_path(article) %>
+      <%= link_to article.title, article %>
     </li>
   <% end %>
 </ul>

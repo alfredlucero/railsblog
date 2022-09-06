@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   # 3. View displays data in desired format; views are templates usually written in mix of HTML and Ruby
   # GET /articles requests are mapped to the index action of ArticlesController
   # bin/rails generate controller Articles index --skip-routes
-  get "/articles", to: "articles#index"
+  # get "/articles", to: "articles#index"
+  # get "/articles/:id", to: "articles#show"
+  # Routes method named resources maps all of the conventional routes for a collection of resources
+  # See bin/rails routes
+  resources :articles
 end
