@@ -6,7 +6,7 @@ class Article < ApplicationRecord
   # Including shared logic concern
   include Visible
 
-  has_many :comments # Can easily retrive all comments belonging to an article with @article.comments
+  has_many :comments, dependent: :destroy # Can easily retrive all comments belonging to an article with @article.comments; when we delete article, we delete all associated comments
 
   # Add validations to help with invalid user input; if any of the checks fail, the save will be aborted and appropriate error messages will be added to the errors attribute of the model object
   validates :title, presence: true
